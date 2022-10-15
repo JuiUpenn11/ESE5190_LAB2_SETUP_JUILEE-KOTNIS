@@ -14,7 +14,7 @@ Now that I am done explaining my setup, I would like to guide the readers of my 
 
 •	Type the command wsl --install
     
-![image](https://user-images.githubusercontent.com/114092868/195962635-586fe41d-e063-4a24-aec2-4be6188722cc.png)
+                      ![image](https://user-images.githubusercontent.com/114092868/195962635-586fe41d-e063-4a24-aec2-4be6188722cc.png)
 
 •	This will start installing Windows Subsystem for Linux and Ubuntu.
 
