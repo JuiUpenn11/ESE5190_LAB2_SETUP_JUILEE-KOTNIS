@@ -14,7 +14,7 @@ Now that I am done explaining my setup, I would like to guide the readers of my 
 
 •	Type the command wsl --install
     
-                      ![image](https://user-images.githubusercontent.com/114092868/195962635-586fe41d-e063-4a24-aec2-4be6188722cc.png)
+![image](https://user-images.githubusercontent.com/114092868/195962635-586fe41d-e063-4a24-aec2-4be6188722cc.png)
 
 •	This will start installing Windows Subsystem for Linux and Ubuntu.
 
@@ -64,67 +64,67 @@ sudo update-alternatives --install /usr/local/bin/usbip /usr/lib/linux-tools/5.4
 
 3)	Now we will start with the installation of SDK on RP2040 QtPy board. The following commands need to be typed in the Ubuntu terminal. We start by creating a pico directory.
 
-$ cd ~/
+        $ cd ~/
 
-$ mkdir pico
+        $ mkdir pico
 
-$ cd pico
-    
+        $ cd pico
+
 ![image](https://user-images.githubusercontent.com/114092868/195962839-fae2947e-335b-4f17-b49e-5d1a2631f10a.png)
 
 4)	Now we need to clone the pico-sdk and pico-examples git repositories. The pico-examples repository is basically a set of example applications that can be written onto the RP2040 QtPy board using pico-sdk.
 
-$ git clone -b master https://github.com/raspberrypi/pico-sdk.git 
+        $ git clone -b master https://github.com/raspberrypi/pico-sdk.git 
 
-$ cd pico-sdk 
+        $ cd pico-sdk 
 
-$ git submodule update --init 
+        $ git submodule update --init 
 
-$ cd .. 
+        $ cd .. 
 
-$ git clone -b master https://github.com/raspberrypi/pico-examples.git
+        $ git clone -b master https://github.com/raspberrypi/pico-examples.git
     
 ![image](https://user-images.githubusercontent.com/114092868/195962891-6085d234-6786-4131-9dd8-11c42c293fbf.png)
 
 5)	In order to build applications in pico-examples we will require some extra tools which are CMake and GNU Embedded Toolchain for Arm. CMake is an open-source, cross-platform tool that uses compiler and platform independent configuration files to generate native build tool files specific to any compiler and platform that you could be using. The GNU Arm Embedded Toolchain is a ready-to-use, open-source suite of tools for C, C++ and assembly programming. This can be done from the Ubuntu terminal itself by using the following commands.
 
-$ sudo apt update 
+        $ sudo apt update 
 
-$ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential libstdc++-arm-none-eabi-newlib
+        $ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential libstdc++-arm-none-eabi-newlib
     
 ![image](https://user-images.githubusercontent.com/114092868/195962904-efe8f2db-99af-46d7-a675-ba6081ea6dc5.png)
 
 6)	This step is to be followed only when a new version of SDK is released in order to update your copy of SDK.
 
-$ cd pico-sdk 
+        $ cd pico-sdk 
 
-$ git pull 
+        $ git pull 
 
-$ git submodule update
+        $ git submodule update
     
 7)	Now we can focus on compiling and running our RP2040 code by executing the following commands. After cloning we are basically setting the path PICO_SDK_PATH=~/pico/pico-sdk and prepared cmake file by running the command cmake ..
 
-$ cd ~/
+        $ cd ~/
 
-$ cd pico/pico-examples
+        $ cd pico/pico-examples
 
-$ mkdir build 
+        $ mkdir build 
 
-$ cd build
+        $ cd build
 
-$ export PICO_SDK_PATH=~/pico/pico-sdk
+        $ export PICO_SDK_PATH=~/pico/pico-sdk
 
-$ cmake ..
+        $ cmake ..
     
 ![image](https://user-images.githubusercontent.com/114092868/195962944-121411f7-6d56-4ab1-9dd7-0079ab21dc5a.png)
 
 8)	In order to edit the code of the example application we will be using from the pico-examples folder we execute the following commands. This will start building the target hello_usb and might take a few minutes.
 
-$ cd ~/
+        $ cd ~/
 
-$ cd pico/pico-examples/build/hello_world
+        $ cd pico/pico-examples/build/hello_world
 
-$ make -j4
+        $ make -j4
     
 ![image](https://user-images.githubusercontent.com/114092868/195962975-ec2e053f-31f0-4781-96b8-ef776b680d0e.png)
 
@@ -134,11 +134,11 @@ $ make -j4
 
 9)	After the target has been built it produces a hello_usb.uf2 file which now is stored inside the build folder of pico-examples of Ubuntu folder. We need to retrieve it from there and get it in the downloads folder of our machine. Hence, we execute the following commands.
 
-$ cd ~/
+        $ cd ~/
 
-$ cd pico/pico-examples/build/hello_world/usb
+        $ cd pico/pico-examples/build/hello_world/usb
 
-$ cp hello_usb.uf2 /mnt/c/Users/Juilee/Downloads
+        $ cp hello_usb.uf2 /mnt/c/Users/Juilee/Downloads
     
 ![image](https://user-images.githubusercontent.com/114092868/195963006-78f9f19c-a6f4-4b3e-9d07-e4946e903962.png)
 
